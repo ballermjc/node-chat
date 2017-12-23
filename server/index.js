@@ -13,4 +13,4 @@ app.post(baseURL, messagesController.create);
 app.put(`${baseURL}/:id`, messagesController.update);
 app.delete(`${baseURL}/:id`, messagesController.destroy);
 
-app.listen(3000, console.log("Boom Baby"));
+app.listen(process.env.PORT, console.log("Boom Baby"));
