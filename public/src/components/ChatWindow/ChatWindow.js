@@ -23,7 +23,7 @@ export default class ChatWindow extends Component {
   }
 
   componentDidMount() {
-    axios.get( url ).then( response => {
+    axios.get( 'https://node-chat-ex.herokuapp.com/api/messages' ).then( response => {
       this.setState({ messages: response.data });
     });
   }
