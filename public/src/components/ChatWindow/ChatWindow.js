@@ -35,7 +35,7 @@ export default class ChatWindow extends Component {
   createMessage( event ) {
     const { text } = this.state;
     if ( event.key === "Enter" && text.length !== 0 ) {
-      axios.post( url, { text, time: dateCreator() } ).then( response => {
+      axios.post( 'https://node-chat-ex.herokuapp.com/api/messages', { text, time: dateCreator() } ).then( response => {
         this.setState({ messages: response.data });
       });
 
@@ -45,13 +45,13 @@ export default class ChatWindow extends Component {
 
   editMessage( id, text ) {
     console.log( 'editMessage:', id, text ); 
-    axios.put( url + `/${id}`, { text } ).then( response => {
+    axios.put( 'https://node-chat-ex.herokuapp.com/api/messages' + `/${id}`, { text } ).then( response => {
       this.setState({ messages: response.data });
     });
   }
 
   removeMessage( id ) {
-    axios.delete( url + `/${id}` ).then( response => {
+    axios.delete( 'https://node-chat-ex.herokuapp.com/api/messages' + `/${id}` ).then( response => {
       this.setState({ messages: response.data });
     });
   }
